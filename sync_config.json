@@ -1,0 +1,8 @@
+{
+    "repos":{
+        "pysmhi": {
+            "copy-from-directory": "xyz/path/",
+            "copy-to-directory": "abc/path/",
+        }
+    }
+}
