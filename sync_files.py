@@ -7,10 +7,10 @@ import requests, json
 
 # GitHub Token and PR flags
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-BOT_NAME = os.getenv("BOT_NAME", "").strip() or "syncbot"
-BOT_EMAIL = os.getenv("BOT_EMAIL", "").strip() or "syncbot@github.com"
-CONFIG_FILE = os.getenv("CONFIG_FILE", "").strip() or "sync_configs.json"
-PULL_REQUEST_TITLE = os.getenv("PULL_REQUEST_TITLE", "Sync files [Automated]").strip() # Basic initialization for pylint quirks
+BOT_NAME = "GJ syncs files"
+BOT_EMAIL = "gjsync@github.com"
+CONFIG_FILE = "sync_config.json"
+PULL_REQUEST_TITLE = "Sync files [Automated]"
 
 # GitHub API Headers
 HEADERS = {
@@ -32,8 +32,7 @@ def get_files_in_directory(directory):
     """Returns a list of files (with paths) in the given directory."""
     file_paths = []
     for root, dirnames, files in os.walk(directory):
-        # print(f"root: {root}")
-        # print(f"files: {files}")
+
         if ".git" in dirnames:   # Exclude ".git/" directory files when copying from root
             dirnames.remove(".git")
         for file in files:
